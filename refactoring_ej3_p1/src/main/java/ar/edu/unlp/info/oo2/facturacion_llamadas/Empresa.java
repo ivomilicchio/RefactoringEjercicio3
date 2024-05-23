@@ -37,8 +37,15 @@ public class Empresa {
 		
 	}
 
-	public Llamada registrarLlamada(Cliente origen, Cliente destino, String t, int duracion) {
-		Llamada llamada = new Llamada(t, origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
+	public Llamada registrarLlamadaNacional(Cliente origen, Cliente destino, int duracion) {
+		Llamada llamada = new LlamadaNacional( origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
+		llamadas.add(llamada);
+		origen.addLlamada(llamada);
+		return llamada;
+	}
+	
+	public Llamada registrarLlamadaInternacional(Cliente origen, Cliente destino, int duracion) {
+		Llamada llamada = new LlamadaInternacional( origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
 		llamadas.add(llamada);
 		origen.addLlamada(llamada);
 		return llamada;
@@ -48,13 +55,9 @@ public class Empresa {
 		double c = 0;
 		for (Llamada l : cliente.getLlamadas()) {
 			double auxc = 0;
-			if (l.getTipoDeLlamada() == "nacional") {
-				// el precio es de 3 pesos por segundo más IVA sin adicional por establecer la llamada
-				auxc += l.getDuracion() * 3 + (l.getDuracion() * 3 * 0.21);
-			} else if (l.getTipoDeLlamada() == "internacional") {
-				// el precio es de 150 pesos por segundo más IVA más 50 pesos por establecer la llamada
-				auxc += l.getDuracion() * 150 + (l.getDuracion() * 150 * 0.21) + 50;
-			}
+			
+			auxc += l.getDuracion() * l.getPrecio() + (l.getDuracion() * l.getPrecio() * 0.21) + l.getAdicional();
+			
 			
 			auxc -= auxc*cliente.getDescuento();
 			
