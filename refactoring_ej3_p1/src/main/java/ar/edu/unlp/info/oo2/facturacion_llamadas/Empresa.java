@@ -52,18 +52,7 @@ public class Empresa {
 	}
 
 	public double calcularMontoTotalLlamadas(Cliente cliente) {
-		double c = 0;
-		for (Llamada l : cliente.getLlamadas()) {
-			double auxc = 0;
-			
-			auxc += l.getDuracion() * l.getPrecio() + (l.getDuracion() * l.getPrecio() * l.getIva()) + l.getAdicional();
-			
-			
-			auxc -= auxc*cliente.getDescuento();
-			
-			c += auxc;
-		}
-		return c;
+		return cliente.calcularLlamadas();
 	}
 
 	public int cantidadDeUsuarios() {

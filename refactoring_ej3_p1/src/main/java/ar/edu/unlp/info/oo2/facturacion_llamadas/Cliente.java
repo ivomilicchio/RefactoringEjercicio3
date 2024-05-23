@@ -5,12 +5,26 @@ import java.util.List;
 
 public abstract class Cliente {
 	private List<Llamada> llamadas = new ArrayList<Llamada>();
-	private String tipo;
 	private String nombre;
 	private String numeroTelefono;
 	
 	
-
+	
+	public double calcularLlamadas() {
+		double c = 0;
+		for (Llamada l : this.getLlamadas()) {
+			double auxc = 0;
+			
+			auxc += l.getDuracion() * l.getPrecio() + (l.getDuracion() * l.getPrecio() * l.getIva()) + l.getAdicional();
+			
+			
+			auxc -= auxc*this.getDescuento();
+			
+			c += auxc;
+		}
+		return c;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
