@@ -56,7 +56,7 @@ public class Empresa {
 		for (Llamada l : cliente.getLlamadas()) {
 			double auxc = 0;
 			
-			auxc += l.getDuracion() * l.getPrecio() + (l.getDuracion() * l.getPrecio() * 0.21) + l.getAdicional();
+			auxc += l.getDuracion() * l.getPrecio() + (l.getDuracion() * l.getPrecio() * l.getIva()) + l.getAdicional();
 			
 			
 			auxc -= auxc*cliente.getDescuento();

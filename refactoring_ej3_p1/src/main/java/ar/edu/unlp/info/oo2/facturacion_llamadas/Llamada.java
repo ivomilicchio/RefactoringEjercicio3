@@ -15,6 +15,10 @@ public abstract class Llamada {
 	
 	public abstract double getAdicional();
 	
+	public double getIva() {
+		return 0.21;
+	}
+	
 
 	public String getRemitente() {
 		return destino;
@@ -27,4 +31,6 @@ public abstract class Llamada {
 	public String getOrigen() {
 		return origen;
 	}
+	
+	
 }
