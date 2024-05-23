@@ -15,7 +15,7 @@ public abstract class Cliente {
 		for (Llamada l : this.getLlamadas()) {
 			double auxc = 0;
 			
-			auxc += l.getDuracion() * l.getPrecio() + (l.getDuracion() * l.getPrecio() * l.getIva()) + l.getAdicional();
+			auxc += l.calcularCosto();
 			
 			
 			auxc -= auxc*this.getDescuento();

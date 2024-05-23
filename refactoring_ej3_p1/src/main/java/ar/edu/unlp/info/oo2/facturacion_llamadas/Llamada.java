@@ -11,6 +11,21 @@ public abstract class Llamada {
 		this.duracion = duracion;
 	}
 	
+	
+	public double calcularCosto() {
+		return this.calcularMontoNeto() + this.calcularMontoIva() + this.getAdicional();
+	}
+	
+	private double calcularMontoNeto() {
+		return this.getDuracion() * this.getPrecio();
+	}
+	
+	private double calcularMontoIva() {
+		return this.calcularMontoNeto() * this.getIva();
+	}
+	
+	
+	
 	public abstract double getPrecio();
 	
 	public abstract double getAdicional();
