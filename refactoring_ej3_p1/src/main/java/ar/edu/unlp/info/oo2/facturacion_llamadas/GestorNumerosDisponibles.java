@@ -5,7 +5,7 @@ import java.util.SortedSet;
 
 public class GestorNumerosDisponibles {
 	private SortedSet<String> lineas = new TreeSet<String>();
-	private Generador generador;
+	private Generador generador = new GeneradorUltimo();
 
 	public SortedSet<String> getLineas() {
 		return lineas;

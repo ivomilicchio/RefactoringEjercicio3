@@ -21,10 +21,10 @@ class EmpresaTest {
 
 	@Test
 	void testcalcularMontoTotalLlamadas() {
-		Cliente emisorPersonaFisca = sistema.registrarUsuario("11555666", "Brendan Eich" , "fisica");
-		Cliente remitentePersonaFisica = sistema.registrarUsuario("00000001", "Doug Lea" , "fisica");
-		Cliente emisorPersonaJuridica = sistema.registrarUsuario("17555222", "Nvidia Corp" , "juridica");
-		Cliente remitentePersonaJuridica = sistema.registrarUsuario("25765432", "Sun Microsystems" , "juridica");
+		Cliente emisorPersonaFisca = sistema.registrarUsuarioFisico("11555666", "Brendan Eich");
+		Cliente remitentePersonaFisica = sistema.registrarUsuarioFisico("00000001", "Doug Lea");
+		Cliente emisorPersonaJuridica = sistema.registrarUsuarioJuridico("17555222", "Nvidia Corp");
+		Cliente remitentePersonaJuridica = sistema.registrarUsuarioJuridico("25765432", "Sun Microsystems" );
 
 		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaFisica, "nacional", 10);
 		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaFisica, "internacional", 8);
@@ -45,7 +45,7 @@ class EmpresaTest {
 	void testAgregarUsuario() {
 		assertEquals(this.sistema.cantidadDeUsuarios(), 0);
 		this.sistema.getGestorNumeros().agregarNumeroTelefono("2214444558"); 
-		Cliente nuevaPersona = this.sistema.registrarUsuario("2444555","Alan Turing", "fisica");
+		Cliente nuevaPersona = this.sistema.registrarUsuarioFisico("2444555","Alan Turing");
 
 		assertEquals(1, this.sistema.cantidadDeUsuarios());
 		assertTrue(this.sistema.existeUsuario(nuevaPersona));
