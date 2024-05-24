@@ -14,28 +14,28 @@ public class Empresa {
 	}
 
 	
-	public Cliente registrarUsuarioFisico(String dni, String nombre) {
+	public ClienteFisico registrarUsuarioFisico(String dni, String nombre) {
 		ClienteFisico cliente = new ClienteFisico(nombre,this.obtenerNumeroLibre(),dni);
 		clientes.add(cliente);
 		return cliente;
 		
 	}
 	
-	public Cliente registrarUsuarioJuridico(String cuit, String nombre) {
+	public ClienteJuridico registrarUsuarioJuridico(String cuit, String nombre) {
 		ClienteJuridico cliente = new ClienteJuridico(nombre,this.obtenerNumeroLibre(),cuit);
 		clientes.add(cliente);
 		return cliente;
 		
 	}
 
-	public Llamada registrarLlamadaNacional(Cliente origen, Cliente destino, int duracion) {
-		Llamada llamada = new LlamadaNacional( origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
+	public LlamadaNacional registrarLlamadaNacional(Cliente origen, Cliente destino, int duracion) {
+		LlamadaNacional llamada = new LlamadaNacional( origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
 		origen.addLlamada(llamada);
 		return llamada;
 	}
 	
-	public Llamada registrarLlamadaInternacional(Cliente origen, Cliente destino, int duracion) {
-		Llamada llamada = new LlamadaInternacional( origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
+	public LlamadaInternacional registrarLlamadaInternacional(Cliente origen, Cliente destino, int duracion) {
+		LlamadaInternacional llamada = new LlamadaInternacional( origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
 		origen.addLlamada(llamada);
 		return llamada;
 	}

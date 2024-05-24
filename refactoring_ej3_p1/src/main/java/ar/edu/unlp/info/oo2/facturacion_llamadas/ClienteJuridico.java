@@ -1,4 +1,4 @@
-package ar.edu.unlp.info.oo2.facturacion_llamadas;
+ package ar.edu.unlp.info.oo2.facturacion_llamadas;
 
 public class ClienteJuridico extends Cliente{
 	private String cuit;
