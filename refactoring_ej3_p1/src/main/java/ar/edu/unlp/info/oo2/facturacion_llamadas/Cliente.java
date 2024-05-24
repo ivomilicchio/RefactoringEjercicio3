@@ -11,19 +11,12 @@ public abstract class Cliente {
 	
 	
 	public double calcularLlamadas() {
-		double c = 0;
-		for (Llamada l : this.getLlamadas()) {
-			double auxc = 0;
-			
-			auxc += this.calcularCostoFinal(l);
-			
-			c += auxc;
-		}
-		return c;
+		double costo = this.llamadas.stream().mapToDouble(l -> l.calcularCosto()).sum();
+		return this.calcularDescuento(costo);
 	}
 	
-	private double calcularCostoFinal(Llamada llamada) {
-		return llamada.calcularCosto() - (llamada.calcularCosto() * this.getDescuento());
+	private double calcularDescuento(Double costo) {
+		return costo - (costo * this.getDescuento());
 	}
 	
 	
