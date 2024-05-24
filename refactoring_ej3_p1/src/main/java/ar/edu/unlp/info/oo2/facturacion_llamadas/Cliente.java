@@ -15,15 +15,18 @@ public abstract class Cliente {
 		for (Llamada l : this.getLlamadas()) {
 			double auxc = 0;
 			
-			auxc += l.calcularCosto();
-			
-			
-			auxc -= auxc*this.getDescuento();
+			auxc += this.calcularCostoFinal(l);
 			
 			c += auxc;
 		}
 		return c;
 	}
+	
+	private double calcularCostoFinal(Llamada llamada) {
+		return llamada.calcularCosto() - (llamada.calcularCosto() * this.getDescuento());
+	}
+	
+	
 	
 	public String getNombre() {
 		return nombre;
