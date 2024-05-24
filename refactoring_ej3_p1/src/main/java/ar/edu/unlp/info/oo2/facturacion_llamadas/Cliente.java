@@ -9,6 +9,11 @@ public abstract class Cliente {
 	private String numeroTelefono;
 	
 	
+	public Cliente(String nombre, String telefono) {
+		this.nombre = nombre;
+		this.numeroTelefono = telefono;
+	}
+	
 	
 	public double calcularLlamadas() {
 		double costo = this.llamadas.stream().mapToDouble(l -> l.calcularCosto()).sum();

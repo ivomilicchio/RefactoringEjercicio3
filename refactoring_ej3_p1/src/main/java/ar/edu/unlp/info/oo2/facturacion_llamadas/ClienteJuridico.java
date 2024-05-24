@@ -4,8 +4,9 @@ public class ClienteJuridico extends Cliente{
 	private String cuit;
 	
 	
-	public ClienteJuridico(){
-		
+	public ClienteJuridico(String nombre, String telefono, String cuit){
+		super(nombre,telefono);
+		this.cuit = cuit;
 	}
 	
 	public String getCuit() {
