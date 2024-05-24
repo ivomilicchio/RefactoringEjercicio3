@@ -22,8 +22,8 @@ public class GestorNumerosDisponibles {
 		this.generador = generador;
 	}
 	
-	public boolean agregarNumeroTelefono(String str) {
+	public boolean agregarNumeroTelefono(String numero) {
 		
-		return getLineas().add(str);
+		return getLineas().add(numero);
 	}
 }
