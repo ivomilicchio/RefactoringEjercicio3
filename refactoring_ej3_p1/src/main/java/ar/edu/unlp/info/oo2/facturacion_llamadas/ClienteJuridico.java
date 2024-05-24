@@ -9,13 +9,7 @@ public class ClienteJuridico extends Cliente{
 		this.cuit = cuit;
 	}
 	
-	public String getCuit() {
-		return cuit;
-	}
 	
-	public void setCuit(String cuit) {
-		this.cuit = cuit;
-	}
 	
 	public double getDescuento() {
 		

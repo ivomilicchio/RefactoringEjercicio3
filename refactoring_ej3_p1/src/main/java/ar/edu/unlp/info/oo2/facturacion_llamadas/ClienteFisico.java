@@ -8,13 +8,6 @@ public class ClienteFisico extends Cliente{
 		this.dni = dni;
 	}
 	
-	public String getDNI() {
-		return dni;
-	}
-	
-	public void setDNI(String dni) {
-		this.dni = dni;
-	}
 	
 	public double getDescuento() {
 		

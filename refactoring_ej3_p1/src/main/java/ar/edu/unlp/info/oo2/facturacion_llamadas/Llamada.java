@@ -35,17 +35,12 @@ public abstract class Llamada {
 	}
 	
 
-	public String getRemitente() {
-		return destino;
-	}
 
 	public int getDuracion() {
 		return this.duracion;
 	}
 
-	public String getOrigen() {
-		return origen;
-	}
+
 	
 	
 }
